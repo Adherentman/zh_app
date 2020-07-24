@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:zhapp/widget/setting/settingPage.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -6,35 +7,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentIndex = 0;
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.home,
-              ),
-              title: Text(
-                'Go',
-              )),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Icons.settings,
-              ),
-              title: Text(
-                '设置',
-              )),
-        ],
-        currentIndex: _currentIndex,
-        onTap: (int index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
-      ),
+    return new Scaffold(
+      body: Row(children: [new Text('home')],)
     );
   }
-  }
+}
