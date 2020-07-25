@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:zhapp/widget/setting/settingPage.dart';
 
 class HomePage extends StatefulWidget {
   @override
