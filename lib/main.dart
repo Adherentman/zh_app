@@ -1,32 +1,31 @@
+import 'dart:io';
+import 'package:flutter_mobx/flutter_mobx.dart';
+
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:zhapp/global/themeController.dart';
 
 import 'navigationBar.dart';
 
 void main() {
   runApp(MyApp());
+  // 透明状态栏
+  if (Platform.isAndroid) {
+    final SystemUiOverlayStyle systemUiOverlayStyle = SystemUiOverlayStyle(statusBarColor: Colors.transparent);
+    SystemChrome.setSystemUIOverlayStyle(systemUiOverlayStyle);
+  }
 }
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return Observer(builder: (_) => MaterialApp(
       title: 'Flutter Demo',
-      // theme: ThemeData(
-      //   primarySwatch: Colors.blue,
-      //   visualDensity: VisualDensity.adaptivePlatformDensity,
-      // ),
-      // darkTheme:
-      theme: ThemeData(
-        brightness: Brightness.light,
-        primaryColor: Colors.red,
-      ),
-      darkTheme: ThemeData(
-        brightness: Brightness.dark,
-        primaryColor: Colors.red,
-        // additional settings go here
-      ),
+      theme: themeManager.getThemeData(),
+      darkTheme: themeManager.getThemeData(isDarkMode: true),
+      themeMode: themeManager.themeMode,
       home: NavigationBar(),
-    );
+    )); 
   }
 }
