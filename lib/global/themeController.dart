@@ -12,9 +12,16 @@ extension ThemeModeExtension on ThemeMode {
   String get value => ['System', 'Light', 'Dark'][index];
 }
 
+
 abstract class ThemeController with Store {
+  static const Map<String, ThemeMode> themes = {
+    "Dark": ThemeMode.dark,
+    "Light": ThemeMode.light,
+    "System": ThemeMode.system
+  };
+
   @observable
-  ThemeMode themeMode = ThemeMode.system;
+  ThemeMode themeMode = themes[Prefs.singleton().getTheme()];
 
   @action
   void setThemeMode(ThemeMode themeMode) {

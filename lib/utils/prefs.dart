@@ -20,7 +20,7 @@ class Prefs {
   }
 
   static final Prefs _instance = Prefs._internal();
-
+  
   SharedPreferences _prefs;
   bool _initialized = false;
 
@@ -30,26 +30,26 @@ class Prefs {
     _listeners = Map<String, List<PrefsListener>>();
     _getPrefs().then((prefs) {
       _initialized = true;
-      for (String key in _listeners.keys) {
-        List<PrefsListener> listeners = _listeners[key];
-        if (listeners != null && listeners.isNotEmpty) {
-          Object value = prefs.get(key);
-          for (PrefsListener listener in listeners) {
-            listener(key, value);
-          }
-        }
-      }
+      // for (String key in _listeners.keys) {
+      //   List<PrefsListener> listeners = _listeners[key];
+      //   if (listeners != null && listeners.isNotEmpty) {
+      //     Object value = prefs.get(key);
+      //     for (PrefsListener listener in listeners) {
+      //       listener(key, value);
+      //     }
+      //   }
+      // }
     });
   }
 
-  void addListenerForPref(String key, PrefsListener listener) {
-    List<PrefsListener> list = _listeners[key];
-    if (list == null) {
-      list = List<PrefsListener>();
-      _listeners[key] = list;
-    }
-    list.add(listener);
-  }
+  // void addListenerForPref(String key, PrefsListener listener) {
+  //   List<PrefsListener> list = _listeners[key];
+  //   if (list == null) {
+  //     list = List<PrefsListener>();
+  //     _listeners[key] = list;
+  //   }
+  //   list.add(listener);
+  // }
 
   Future<SharedPreferences> _getPrefs() async {
     if (_prefs == null) {
@@ -74,18 +74,18 @@ class Prefs {
 
   //called when the user updates the operating system theme
   //(by choosing light or dark mode)
-  void systemThemeUpdated(Brightness brightness) {
-    if (ThemeMode.system != null) {
-      String theme = getTheme();
+  // void systemThemeUpdated(Brightness brightness) {
+  //   if (ThemeMode.system != null) {
+  //     String theme = getTheme();
 
-      List<PrefsListener> listenerList = _listeners[THEME_PREF];
-      if (listenerList != null) {
-        for (PrefsListener listener in listenerList) {
-          listener(THEME_PREF, theme);
-        }
-      }
-    }
-  }
+  //     List<PrefsListener> listenerList = _listeners[THEME_PREF];
+  //     if (listenerList != null) {
+  //       for (PrefsListener listener in listenerList) {
+  //         listener(THEME_PREF, theme);
+  //       }
+  //     }
+  //   }
+  // }
 
   ///set the app's theme preference from the
   ///app's own UI
@@ -93,11 +93,11 @@ class Prefs {
     _getPrefs().then((prefs) {
       prefs.setString(THEME_PREF, theme);
     });
-    List<PrefsListener> listenerList = _listeners[THEME_PREF];
-    if (listenerList != null) {
-      for (PrefsListener listener in listenerList) {
-        listener(THEME_PREF, theme);
-      }
-    }
+    // List<PrefsListener> listenerList = _listeners[THEME_PREF];
+    // if (listenerList != null) {
+    //   for (PrefsListener listener in listenerList) {
+    //     listener(THEME_PREF, theme);
+    //   }
+    // }
   }
 }
