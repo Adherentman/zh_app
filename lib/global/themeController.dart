@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:zhapp/utils/SharedPreferencesDataUtils.dart';
 import 'package:zhapp/utils/prefs.dart';
 
 part 'themeController.g.dart';
@@ -21,7 +22,7 @@ abstract class ThemeController with Store {
   };
 
   @observable
-  ThemeMode themeMode = themes[Prefs.singleton().getTheme()];
+  ThemeMode themeMode = themes[SharedPreferencesDataUtils.get(SharedPreferencesDataUtils.THEME_PREF)];
 
   @action
   void setThemeMode(ThemeMode themeMode) {
