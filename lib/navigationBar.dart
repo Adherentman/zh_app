@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:zhapp/widget/home/homePage.dart';
-import 'package:zhapp/widget/setting/settingPage.dart';
 import 'package:zhapp/widget/setting/themePage.dart';
 
 class NavigationBar extends StatefulWidget {
