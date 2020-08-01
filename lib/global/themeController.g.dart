@@ -24,6 +24,21 @@ mixin _$ThemeManager on ThemeController, Store {
     });
   }
 
+  final _$themeModeItemAtom = Atom(name: 'ThemeController.themeModeItem');
+
+  @override
+  String get themeModeItem {
+    _$themeModeItemAtom.reportRead();
+    return super.themeModeItem;
+  }
+
+  @override
+  set themeModeItem(String value) {
+    _$themeModeItemAtom.reportWrite(value, super.themeModeItem, () {
+      super.themeModeItem = value;
+    });
+  }
+
   final _$ThemeControllerActionController =
       ActionController(name: 'ThemeController');
 
@@ -33,6 +48,17 @@ mixin _$ThemeManager on ThemeController, Store {
         name: 'ThemeController.setThemeMode');
     try {
       return super.setThemeMode(themeMode);
+    } finally {
+      _$ThemeControllerActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setThemeModeItem(String themeMode) {
+    final _$actionInfo = _$ThemeControllerActionController.startAction(
+        name: 'ThemeController.setThemeModeItem');
+    try {
+      return super.setThemeModeItem(themeMode);
     } finally {
       _$ThemeControllerActionController.endAction(_$actionInfo);
     }
@@ -52,7 +78,8 @@ mixin _$ThemeManager on ThemeController, Store {
   @override
   String toString() {
     return '''
-themeMode: ${themeMode}
+themeMode: ${themeMode},
+themeModeItem: ${themeModeItem}
     ''';
   }
 }

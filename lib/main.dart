@@ -23,7 +23,6 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    print('${SharedPreferencesDataUtils.get(SharedPreferencesDataUtils.THEME_PREF)} ddadsasssd');
     return Observer(builder: (_) => MaterialApp(
       title: 'Flutter Demo',
       theme: themeManager.getThemeData(),

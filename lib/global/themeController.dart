@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:zhapp/utils/SharedPreferencesDataUtils.dart';
-import 'package:zhapp/utils/prefs.dart';
 
 part 'themeController.g.dart';
 
@@ -21,14 +20,28 @@ abstract class ThemeController with Store {
     "System": ThemeMode.system
   };
 
+  static const Map<String, String> themeDict = {
+    "Dark": "开启",
+    "Light": "关闭",
+    "System": "跟随系统"
+  };
+
   @observable
   ThemeMode themeMode = themes[SharedPreferencesDataUtils.get(SharedPreferencesDataUtils.THEME_PREF)];
+
+  @observable 
+  String themeModeItem = themeDict[SharedPreferencesDataUtils.get(SharedPreferencesDataUtils.THEME_PREF)];
 
   @action
   void setThemeMode(ThemeMode themeMode) {
     this.themeMode = themeMode;
   }
 
+  @action
+  void setThemeModeItem(String themeMode) {
+    this.themeModeItem = themeMode;
+    print(this.themeModeItem);
+  }
   @action
   ThemeData getThemeData({bool isDarkMode = false}) {
     return ThemeData(
