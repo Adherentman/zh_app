@@ -40,8 +40,8 @@ abstract class ThemeController with Store {
   @action
   void setThemeModeItem(String themeMode) {
     this.themeModeItem = themeMode;
-    print(this.themeModeItem);
   }
+  
   @action
   ThemeData getThemeData({bool isDarkMode = false}) {
     return ThemeData(
