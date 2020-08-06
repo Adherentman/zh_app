@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:zhapp/global/themeController.dart';
 import 'package:zhapp/utils/SharedPreferencesDataUtils.dart';
+import 'package:zhapp/widget/setting/themePage.dart';
 
 import 'navigationBar.dart';
 
@@ -25,10 +26,15 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return Observer(builder: (_) => MaterialApp(
       title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: themeManager.getThemeData(),
       darkTheme: themeManager.getThemeData(isDarkMode: true),
       themeMode: themeManager.themeMode,
-      home: NavigationBar(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => NavigationBar(),
+        'setting/theme_page': (context) => ThemePage()
+      },
     )); 
   }
 }
