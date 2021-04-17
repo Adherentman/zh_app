@@ -9,14 +9,12 @@ class NavigationBar extends StatefulWidget {
 
 class _NavigationBarState extends State<NavigationBar> {
   int _currentIndex = 0;
-  List<Widget> pages = List<Widget>();
+  List<Widget> pages = [];
 
   @override
   void initState() {
     super.initState();
-     pages
-      ..add(HomePage())
-      ..add(ThemePage());
+    pages..add(HomePage())..add(ThemePage());
   }
 
   @override

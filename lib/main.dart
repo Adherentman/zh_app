@@ -2,14 +2,12 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:zhapp/utils/SharedPreferencesDataUtils.dart';
 import 'package:zhapp/widget/setting/themePage.dart';
 
 import 'navigationBar.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await SharedPreferencesDataUtils.getInstance();
   runApp(MyApp());
   // 透明状态栏
   if (Platform.isAndroid) {

@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 class DioManager {
   static final DioManager _shared = DioManager._internal();
   factory DioManager() => _shared;
-  Dio dio;
+  late Dio dio;
   DioManager._internal() {
     if (dio == null) {
       BaseOptions options = BaseOptions(

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:zhapp/utils/SharedPreferencesDataUtils.dart';
 
 class ThemePage extends StatelessWidget {
   final List<String> _list = ['跟随系统', '开启', '关闭'];
@@ -8,8 +7,8 @@ class ThemePage extends StatelessWidget {
     ThemeMode themeMode = index == 0
         ? ThemeMode.system
         : (index == 1 ? ThemeMode.dark : ThemeMode.light);
-    SharedPreferencesDataUtils.set(
-        SharedPreferencesDataUtils.THEME_PREF, themeMode);
+    // SharedPreferencesDataUtils.set(
+    //     SharedPreferencesDataUtils.THEME_PREF, themeMode);
     // themeManager.setThemeMode(themeMode);
     // themeManager.setThemeModeItem(ThemeController.themeDict[themeMode.value]);
   }
