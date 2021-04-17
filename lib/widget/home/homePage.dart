@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:zhapp/widget/fitness/fitnessController.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -10,7 +8,6 @@ class HomePage extends StatefulWidget {
 enum AppState { DATA_NOT_FETCHED, FETCHING_DATA, DATA_READY, NO_DATA }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,15 +17,11 @@ class _HomePageState extends State<HomePage> {
           actions: <Widget>[
             IconButton(
               icon: Icon(Icons.file_download),
-              onPressed: () {
-                fitness.fetchData();
-              },
+              onPressed: () {},
             )
           ],
         ),
-        body: Center(
-          child: Observer(builder: (_) =>Text(fitness.stepsCount.toString())) 
-        ),
+        body: Center(child: Text('ss')),
       ),
     );
   }

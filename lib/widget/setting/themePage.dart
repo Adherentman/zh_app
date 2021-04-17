@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:zhapp/global/themeController.dart';
 import 'package:zhapp/utils/SharedPreferencesDataUtils.dart';
 
 class ThemePage extends StatelessWidget {
@@ -11,9 +9,9 @@ class ThemePage extends StatelessWidget {
         ? ThemeMode.system
         : (index == 1 ? ThemeMode.dark : ThemeMode.light);
     SharedPreferencesDataUtils.set(
-        SharedPreferencesDataUtils.THEME_PREF, themeMode.value);
-    themeManager.setThemeMode(themeMode);
-    themeManager.setThemeModeItem(ThemeController.themeDict[themeMode.value]);
+        SharedPreferencesDataUtils.THEME_PREF, themeMode);
+    // themeManager.setThemeMode(themeMode);
+    // themeManager.setThemeModeItem(ThemeController.themeDict[themeMode.value]);
   }
 
   @override
@@ -37,13 +35,13 @@ class ThemePage extends StatelessWidget {
                 child: Row(
                   children: <Widget>[
                     Expanded(child: Text(_list[index])),
-                    Observer(
-                      builder: (_) => Opacity(
-                        opacity:
-                            themeManager.themeModeItem == _list[index] ? 1 : 0,
-                        child: Icon(Icons.done, color: Colors.blue),
-                      ),
-                    ),
+                    // Observer(
+                    //   builder: (_) => Opacity(
+                    //     opacity:
+                    //         themeManager.themeModeItem == _list[index] ? 1 : 0,
+                    //     child: Icon(Icons.done, color: Colors.blue),
+                    //   ),
+                    // ),
                   ],
                 ),
               ),
