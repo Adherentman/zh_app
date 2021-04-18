@@ -1,40 +1,28 @@
 PODS:
-  - device_id (0.0.1):
-    - Flutter
   - Flutter (1.0.0)
-  - health (1.0.1):
+  - path_provider (0.0.1):
     - Flutter
   - shared_preferences (0.0.1):
     - Flutter
-  - sign_in_with_apple (0.0.1):
-    - Flutter
 
 DEPENDENCIES:
-  - device_id (from `.symlinks/plugins/device_id/ios`)
   - Flutter (from `Flutter`)
-  - health (from `.symlinks/plugins/health/ios`)
+  - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - shared_preferences (from `.symlinks/plugins/shared_preferences/ios`)
-  - sign_in_with_apple (from `.symlinks/plugins/sign_in_with_apple/ios`)
 
 EXTERNAL SOURCES:
-  device_id:
-    :path: ".symlinks/plugins/device_id/ios"
   Flutter:
     :path: Flutter
-  health:
-    :path: ".symlinks/plugins/health/ios"
+  path_provider:
+    :path: ".symlinks/plugins/path_provider/ios"
   shared_preferences:
     :path: ".symlinks/plugins/shared_preferences/ios"
-  sign_in_with_apple:
-    :path: ".symlinks/plugins/sign_in_with_apple/ios"
 
 SPEC CHECKSUMS:
-  device_id: 4a0bf078741a3eec6ba0e6cc72e786395d5991b0
-  Flutter: 0e3d915762c693b495b44d77113d4970485de6ec
-  health: 44840ad4328aa5586e77bef289898bfed644a81c
+  Flutter: 434fef37c0980e73bb6479ef766c45957d4b510c
+  path_provider: abfe2b5c733d04e238b0d8691db0cfd63a27a93c
   shared_preferences: af6bfa751691cdc24be3045c43ec037377ada40d
-  sign_in_with_apple: 34f3f5456a45fd7ac5fb42905e2ad31dae061b4a
 
 PODFILE CHECKSUM: aafe91acc616949ddb318b77800a7f51bffa2a4c
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0
